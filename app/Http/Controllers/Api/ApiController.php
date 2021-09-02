@@ -11,6 +11,7 @@ use App\Models\Employee;
 class ApiController extends Controller
 {
     //Create API
+    //http://127.0.0.1:8000/api/add-employee
     public function createEmployee(Request $request){
         //validation
         $request->validate([
@@ -43,6 +44,7 @@ class ApiController extends Controller
     }
 
     //List API
+    //http://127.0.0.1:8000/api/list-employees
     public function listEmployees(){
 
         $employees = Employee::all();
@@ -56,6 +58,7 @@ class ApiController extends Controller
     }
 
     //Single Detail API
+    //
     public function getSingleEmployee($id){
 
         if(Employee::where("id", $id)->exists()){
@@ -78,6 +81,7 @@ class ApiController extends Controller
 
     
     //Update API
+    //http://127.0.0.1:8000/api/update-employee/1
     public function updateEmployee(Request $request, $id){
 
         if(Employee::where("id", $id)->exists()){
@@ -109,6 +113,7 @@ class ApiController extends Controller
 
     
     //Delete API
+    //http://127.0.0.1:8000/api/delete-employee/4
     public function deleteEmployee($id){
 
         if(Employee::where("id", $id)->exists()){
